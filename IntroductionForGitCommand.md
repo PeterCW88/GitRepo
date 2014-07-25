@@ -152,4 +152,8 @@ master要merge testing時出現Confict
 
 ※注意(master)
 
-  
+7.如何Rebase
+
+
+
+    
