@@ -86,3 +86,70 @@ git會使用「HEAD」紀錄目前所在的Branch,因此需要利用checkout把�
 
 這種合併只需要Commit往前推，叫做fast-foward
 
+再以testing merge master為例：
+
+	$ git merge master
+	Updating e786a78..a79f184
+	Fast-forward
+	 IntroductionForGitCommand.md | 9 +++++++++
+	 README.txt                   | 1 +
+	 2 files changed, 10 insertions(+)
+
+- 合併衝突時處理
+
+master要merge testing時出現Confict
+
+    $ git merge testing
+    Auto-merging README.txt
+    CONFLICT (content): Merge conflict in README.txt
+    Automatic merge failed; fix conflicts and then commit the result.
+    
+編輯衝突的檔案
+
+    IEC971020@IEC1-971020-2 ~/GitDir (master|MERGING)
+    $ vim README.txt
+
+※注意(master|MERGING)
+
+取得合併的參考方法
+
+    IEC971020@IEC1-971020-2 ~/GitDir (master|MERGING)
+    $ git status
+    # On branch master
+    # Your branch is ahead of 'origin/master' by 9 commits.
+    #   (use "git push" to publish your local commits)
+    #
+    # You have unmerged paths.
+    #   (fix conflicts and run "git commit")
+    #
+    # Unmerged paths:
+    #   (use "git add <file>..." to mark resolution)
+    #
+    #   both modified:  README.txt
+    #
+    no changes added to commit (use "git add" and/or "git commit -a")
+
+提交合併的內容 
+
+    IEC971020@IEC1-971020-2 ~/GitDir (master|MERGING)
+    $ git commit -a
+    [master c571de7] Merge branch 'testing'
+     
+提交後完成合併message後的命令列
+
+    IEC971020@IEC1-971020-2 ~/GitDir (master)
+    $ git log
+    commit c571de7d757573ee87d85d13f342346c9fbc7fa5
+    Merge: 98084b6 83861b5
+    Author: PeterCW <hsieh.peterc.w@inventec.com>
+    Date:   Fri Jul 25 16:57:05 2014 +0800
+    
+    Merge branch 'testing'
+    
+    Conflicts:
+    README.txt
+    Resolve by PeterCW88
+
+※注意(master)
+
+  
