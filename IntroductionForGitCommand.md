@@ -77,3 +77,12 @@ git會使用「HEAD」紀錄目前所在的Branch,因此需要利用checkout把�
 
 	$>git checkout -b testing ：開新Branch並切到testing
 
+- 執行合併Branch
+
+切換到master後將testing合併進master
+
+	$>git checkout master
+	$>git merge testing
+
+這種合併只需要Commit往前推，叫做fast-foward
+
