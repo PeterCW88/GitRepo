@@ -59,4 +59,21 @@ Git本地端版本控管會分為三個階段：
 
 	$>git checkout -- filename
 
+6.Branch的操作
+
+- 新增Branch
+
+新增一個Branch並給定一名稱「testing」
+
+	$>git branch testing
+
+- 切換到「testing」
+
+git會使用「HEAD」紀錄目前所在的Branch,因此需要利用checkout把「HEAD」指定到Branch(testing)
+
+	$>git checkout testing
+
+※合併操作
+
+	$>git checkout -b testing ：開新Branch並切到testing
 
