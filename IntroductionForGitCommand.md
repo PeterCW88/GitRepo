@@ -154,6 +154,32 @@ master要merge testing時出現Confict
 
 7.如何Rebase
 
+切換到testing
+
+	IEC971020@IEC1-971020-2 ~/GitDir (master)
+	$ git checkout testing
+	Switched to branch 'testing'
+
+rebase到master，並且自動執行Fast-frowarded
+
+	IEC971020@IEC1-971020-2 ~/GitDir (testing)
+	$ git rebase master
+	First, rewinding head to replay your work on top of it...
+	Fast-forwarded testing to master.
+
+切回master
+
+	IEC971020@IEC1-971020-2 ~/GitDir (testing)
+	$ git checkout master
+	Switched to branch 'master'
+	Your branch is ahead of 'origin/master' by 13 commits.
+	  (use "git push" to publish your local commits)
+
+執行合併
+
+	IEC971020@IEC1-971020-2 ~/GitDir (master)
+	$ git merge testing
+	Already up-to-date.
 
 
     
